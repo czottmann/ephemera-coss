@@ -1,0 +1,677 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		172754BD107597F200D0347B /* Unit Tests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 172754C7107597F400D0347B /* Build configuration list for PBXAggregateTarget "Unit Tests" */;
+			buildPhases = (
+				172754BC107597F200D0347B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Unit Tests";
+			productName = "Unit Tests";
+		};
+		233227D91109B43300419259 /* Embed & Compile */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 233227E31109B44300419259 /* Build configuration list for PBXAggregateTarget "Embed & Compile" */;
+			buildPhases = (
+				233227D81109B43300419259 /* Embed, Compile, Fix */,
+			);
+			dependencies = (
+				233227DD1109B43600419259 /* PBXTargetDependency */,
+			);
+			name = "Embed & Compile";
+			productName = "Embed and Compile";
+		};
+		23DE1AE71116E9F7008815F8 /* Distribution */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 23DE1AF51116EA0E008815F8 /* Build configuration list for PBXAggregateTarget "Distribution" */;
+			buildPhases = (
+				23DE1AE61116E9F7008815F8 /* Package & appcast generation */,
+			);
+			dependencies = (
+			);
+			name = Distribution;
+			productName = Distribution;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		231549AF1110CCA400473CA3 /* config.rb in Resources */ = {isa = PBXBuildFile; fileRef = 231549AE1110CCA400473CA3 /* config.rb */; };
+		23271D771105FAFD00B8A53F /* autorun.bak.sh in Resources */ = {isa = PBXBuildFile; fileRef = 23271D761105FAFD00B8A53F /* autorun.bak.sh */; };
+		232B0A2C110C68C400BFE239 /* single_article_files.rb in Resources */ = {isa = PBXBuildFile; fileRef = 232B0A2B110C68C400BFE239 /* single_article_files.rb */; };
+		2332348210FB2D52005E6973 /* login.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2332348110FB2D52005E6973 /* login.rb */; };
+		233236BD10FB9904005E6973 /* article.rb in Resources */ = {isa = PBXBuildFile; fileRef = 233236BC10FB9904005E6973 /* article.rb */; };
+		233236D010FBC91E005E6973 /* data_fetcher.rb in Resources */ = {isa = PBXBuildFile; fileRef = 233236CF10FBC91E005E6973 /* data_fetcher.rb */; };
+		233236ED10FBCC43005E6973 /* Ephemera.icns in Resources */ = {isa = PBXBuildFile; fileRef = 233236EC10FBCC43005E6973 /* Ephemera.icns */; };
+		234D33BF110B2601002688E4 /* bootstrap.rb in Resources */ = {isa = PBXBuildFile; fileRef = 234D33BE110B2601002688E4 /* bootstrap.rb */; };
+		23691FF810F3EA3B00A49DAC /* prefs_controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = 23691FF710F3EA3B00A49DAC /* prefs_controller.rb */; };
+		236DF16A1107521F00044020 /* unread_articles_list.rb in Resources */ = {isa = PBXBuildFile; fileRef = 236DF1691107521F00044020 /* unread_articles_list.rb */; };
+		236DF18B110752DA00044020 /* single_articles_processor.rb in Resources */ = {isa = PBXBuildFile; fileRef = 236DF18A110752DA00044020 /* single_articles_processor.rb */; };
+		239314C910FF590400DD5645 /* constants.rb in Resources */ = {isa = PBXBuildFile; fileRef = 239314C810FF590400DD5645 /* constants.rb */; };
+		239317FF10FFF37000DD5645 /* de.municode.Ephemera.plist in Resources */ = {isa = PBXBuildFile; fileRef = 239317FE10FFF37000DD5645 /* de.municode.Ephemera.plist */; };
+		2393182A1100874500DD5645 /* reader.rb in Resources */ = {isa = PBXBuildFile; fileRef = 239318291100874500DD5645 /* reader.rb */; };
+		2393182C1100879E00DD5645 /* notifiable.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2393182B1100879E00DD5645 /* notifiable.rb */; };
+		23931C1F11010BFF00DD5645 /* article_archiver.rb in Resources */ = {isa = PBXBuildFile; fileRef = 23931C1E11010BFF00DD5645 /* article_archiver.rb */; };
+		23931D511101F52F00DD5645 /* about_controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = 23931D501101F52F00DD5645 /* about_controller.rb */; };
+		23931D931101F7F900DD5645 /* about.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 23931D921101F7F900DD5645 /* about.rtf */; };
+		2395290011050A170086E993 /* world_domination.rb in Resources */ = {isa = PBXBuildFile; fileRef = 239528FF11050A170086E993 /* world_domination.rb */; };
+		239DD73010F38E61007FE8B0 /* log_controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = 239DD72F10F38E61007FE8B0 /* log_controller.rb */; };
+		239DD73310F38E89007FE8B0 /* controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = 239DD73210F38E89007FE8B0 /* controller.rb */; };
+		23A2CDD111076FCF00574599 /* gems in Resources */ = {isa = PBXBuildFile; fileRef = 23A2CDAC11076FCF00574599 /* gems */; };
+		23A2CEE31108AC2C00574599 /* premade_bundles_processor.rb in Resources */ = {isa = PBXBuildFile; fileRef = 23A2CEE21108AC2C00574599 /* premade_bundles_processor.rb */; };
+		23A2CF0E1108B4BC00574599 /* premade_bundle_file.rb in Resources */ = {isa = PBXBuildFile; fileRef = 23A2CF0D1108B4BC00574599 /* premade_bundle_file.rb */; };
+		23A840EA1117235600DB2301 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23CBFB5F11171F22002267F5 /* Sparkle.framework */; };
+		23B98ED9110E4BCE00600227 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23B98ED7110E4BCE00600227 /* MainMenu.xib */; };
+		23BBDBAC10F4BE8100AC77B4 /* window_controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = 23BBDBAB10F4BE8100AC77B4 /* window_controller.rb */; };
+		23C83F19110ECFBB004800B9 /* EMKeychain.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C83F18110ECFBB004800B9 /* EMKeychain.dylib */; };
+		23C83F21110ECFFD004800B9 /* EMKeychain.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 23C83F18110ECFBB004800B9 /* EMKeychain.dylib */; };
+		23CBFB8311171FB1002267F5 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CBFB5F11171F22002267F5 /* Sparkle.framework */; };
+		23DE1AE21116E4D0008815F8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 23DE1AE11116E4D0008815F8 /* dsa_pub.pem */; };
+		4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 4DE339F60D74FCDD00ADB6EE /* rb_main.rb */; };
+		4DE3BE140D8651D900ECA448 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE3BE130D8651D900ECA448 /* MacRuby.framework */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		233227DC1109B43600419259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = Ephemera;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		23CBFBA311172145002267F5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				23A840EA1117235600DB2301 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		172754D5107598EA00D0347B /* stub_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = stub_test.rb; sourceTree = "<group>"; };
+		17D55CD81076A1A2008207BD /* run_suite.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = run_suite.rb; sourceTree = "<group>"; };
+		231549AE1110CCA400473CA3 /* config.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = config.rb; path = Classes/config.rb; sourceTree = "<group>"; };
+		23271D761105FAFD00B8A53F /* autorun.bak.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = autorun.bak.sh; sourceTree = "<group>"; };
+		232B0A2B110C68C400BFE239 /* single_article_files.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = single_article_files.rb; path = ../Ephemera/Classes/single_article_files.rb; sourceTree = "<group>"; };
+		2332348110FB2D52005E6973 /* login.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = login.rb; path = ../Ephemera/Classes/login.rb; sourceTree = SOURCE_ROOT; };
+		233236BC10FB9904005E6973 /* article.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = article.rb; path = ../Ephemera/Classes/article.rb; sourceTree = SOURCE_ROOT; };
+		233236CF10FBC91E005E6973 /* data_fetcher.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = data_fetcher.rb; path = ../Ephemera/Classes/data_fetcher.rb; sourceTree = SOURCE_ROOT; };
+		233236EC10FBCC43005E6973 /* Ephemera.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Ephemera.icns; path = ../Ephemera/Ephemera.icns; sourceTree = SOURCE_ROOT; };
+		234D33BE110B2601002688E4 /* bootstrap.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = bootstrap.rb; path = Classes/bootstrap.rb; sourceTree = "<group>"; };
+		23691FF710F3EA3B00A49DAC /* prefs_controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = prefs_controller.rb; path = ../Ephemera/Classes/prefs_controller.rb; sourceTree = SOURCE_ROOT; };
+		2369205410F3F44600A49DAC /* Ephemera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ephemera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		236DF1691107521F00044020 /* unread_articles_list.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = unread_articles_list.rb; path = ../Ephemera/Classes/unread_articles_list.rb; sourceTree = SOURCE_ROOT; };
+		236DF18A110752DA00044020 /* single_articles_processor.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = single_articles_processor.rb; path = ../Ephemera/Classes/single_articles_processor.rb; sourceTree = "<group>"; };
+		239314C810FF590400DD5645 /* constants.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = constants.rb; path = ../Ephemera/Classes/constants.rb; sourceTree = SOURCE_ROOT; };
+		239317FE10FFF37000DD5645 /* de.municode.Ephemera.plist */ = {isa = PBXFileReference; comments = "LaunchAgents file"; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = de.municode.Ephemera.plist; path = ../Ephemera/de.municode.Ephemera.plist; sourceTree = SOURCE_ROOT; };
+		239318291100874500DD5645 /* reader.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = reader.rb; path = Classes/reader.rb; sourceTree = "<group>"; };
+		2393182B1100879E00DD5645 /* notifiable.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = notifiable.rb; path = ../Ephemera/Classes/notifiable.rb; sourceTree = "<group>"; };
+		23931C1E11010BFF00DD5645 /* article_archiver.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = article_archiver.rb; path = ../Ephemera/Classes/article_archiver.rb; sourceTree = "<group>"; };
+		23931D501101F52F00DD5645 /* about_controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = about_controller.rb; path = ../Ephemera/Classes/about_controller.rb; sourceTree = "<group>"; };
+		23931D921101F7F900DD5645 /* about.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = about.rtf; path = ../Ephemera/about.rtf; sourceTree = SOURCE_ROOT; };
+		239528FF11050A170086E993 /* world_domination.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = world_domination.rb; path = ../Ephemera/Classes/world_domination.rb; sourceTree = "<group>"; };
+		239DD72F10F38E61007FE8B0 /* log_controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = log_controller.rb; path = ../Ephemera/Classes/log_controller.rb; sourceTree = SOURCE_ROOT; };
+		239DD73210F38E89007FE8B0 /* controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = controller.rb; path = ../Ephemera/Classes/controller.rb; sourceTree = SOURCE_ROOT; };
+		23A2CDAC11076FCF00574599 /* gems */ = {isa = PBXFileReference; lastKnownFileType = folder; name = gems; path = ../Ephemera/gems; sourceTree = SOURCE_ROOT; };
+		23A2CEE21108AC2C00574599 /* premade_bundles_processor.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = premade_bundles_processor.rb; path = ../Ephemera/Classes/premade_bundles_processor.rb; sourceTree = "<group>"; };
+		23A2CF0D1108B4BC00574599 /* premade_bundle_file.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = premade_bundle_file.rb; path = ../Ephemera/Classes/premade_bundle_file.rb; sourceTree = "<group>"; };
+		23B98ED8110E4BCE00600227 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		23BBDBAB10F4BE8100AC77B4 /* window_controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = window_controller.rb; path = ../Ephemera/Classes/window_controller.rb; sourceTree = SOURCE_ROOT; };
+		23C83F18110ECFBB004800B9 /* EMKeychain.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = EMKeychain.dylib; sourceTree = "<group>"; };
+		23CBFB5F11171F22002267F5 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		23DE1AE11116E4D0008815F8 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		4DE339F60D74FCDD00ADB6EE /* rb_main.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
+		4DE3BE130D8651D900ECA448 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = /Library/Frameworks/MacRuby.framework; sourceTree = "<absolute>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23CBFB8311171FB1002267F5 /* Sparkle.framework in Frameworks */,
+				4DE3BE140D8651D900ECA448 /* MacRuby.framework in Frameworks */,
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				23C83F19110ECFBB004800B9 /* EMKeychain.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DE3BE130D8651D900ECA448 /* MacRuby.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				23CBFB5F11171F22002267F5 /* Sparkle.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		172754AE1075979200D0347B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				172754D5107598EA00D0347B /* stub_test.rb */,
+				17D55CD81076A1A2008207BD /* run_suite.rb */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2369205410F3F44600A49DAC /* Ephemera.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2332347110FB2CCD005E6973 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				233236BC10FB9904005E6973 /* article.rb */,
+				23931C1E11010BFF00DD5645 /* article_archiver.rb */,
+				231549AE1110CCA400473CA3 /* config.rb */,
+				233236CF10FBC91E005E6973 /* data_fetcher.rb */,
+				2332348110FB2D52005E6973 /* login.rb */,
+				2393182B1100879E00DD5645 /* notifiable.rb */,
+				23A2CF0D1108B4BC00574599 /* premade_bundle_file.rb */,
+				23A2CEE21108AC2C00574599 /* premade_bundles_processor.rb */,
+				239318291100874500DD5645 /* reader.rb */,
+				232B0A2B110C68C400BFE239 /* single_article_files.rb */,
+				236DF18A110752DA00044020 /* single_articles_processor.rb */,
+				236DF1691107521F00044020 /* unread_articles_list.rb */,
+				239528FF11050A170086E993 /* world_domination.rb */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		239318A51100923100DD5645 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				234D33BE110B2601002688E4 /* bootstrap.rb */,
+				239314C810FF590400DD5645 /* constants.rb */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		239DD73110F38E6D007FE8B0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				239DD73210F38E89007FE8B0 /* controller.rb */,
+				23931D501101F52F00DD5645 /* about_controller.rb */,
+				239DD72F10F38E61007FE8B0 /* log_controller.rb */,
+				23691FF710F3EA3B00A49DAC /* prefs_controller.rb */,
+				23BBDBAB10F4BE8100AC77B4 /* window_controller.rb */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Ephemera */ = {
+			isa = PBXGroup;
+			children = (
+				23A2CDAC11076FCF00574599 /* gems */,
+				239318A51100923100DD5645 /* Util */,
+				2332347110FB2CCD005E6973 /* Models */,
+				239DD73110F38E6D007FE8B0 /* Controllers */,
+				172754AE1075979200D0347B /* Tests */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Ephemera;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4DE339F60D74FCDD00ADB6EE /* rb_main.rb */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				23C83F18110ECFBB004800B9 /* EMKeychain.dylib */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				23DE1AE11116E4D0008815F8 /* dsa_pub.pem */,
+				23271D761105FAFD00B8A53F /* autorun.bak.sh */,
+				23931D921101F7F900DD5645 /* about.rtf */,
+				239317FE10FFF37000DD5645 /* de.municode.Ephemera.plist */,
+				233236EC10FBCC43005E6973 /* Ephemera.icns */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				23B98ED7110E4BCE00600227 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Ephemera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Ephemera" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				23CBFBA311172145002267F5 /* CopyFiles */,
+				232B0ADF110C740700BFE239 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ephemera;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Ephemera;
+			productReference = 2369205410F3F44600A49DAC /* Ephemera.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Carlo Zottmann";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Ephemera" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Ephemera */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Ephemera */,
+				172754BD107597F200D0347B /* Unit Tests */,
+				233227D91109B43300419259 /* Embed & Compile */,
+				23DE1AE71116E9F7008815F8 /* Distribution */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23C83F21110ECFFD004800B9 /* EMKeychain.dylib in Resources */,
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */,
+				239DD73010F38E61007FE8B0 /* log_controller.rb in Resources */,
+				239DD73310F38E89007FE8B0 /* controller.rb in Resources */,
+				23691FF810F3EA3B00A49DAC /* prefs_controller.rb in Resources */,
+				23BBDBAC10F4BE8100AC77B4 /* window_controller.rb in Resources */,
+				2332348210FB2D52005E6973 /* login.rb in Resources */,
+				233236BD10FB9904005E6973 /* article.rb in Resources */,
+				233236D010FBC91E005E6973 /* data_fetcher.rb in Resources */,
+				233236ED10FBCC43005E6973 /* Ephemera.icns in Resources */,
+				239314C910FF590400DD5645 /* constants.rb in Resources */,
+				239317FF10FFF37000DD5645 /* de.municode.Ephemera.plist in Resources */,
+				2393182A1100874500DD5645 /* reader.rb in Resources */,
+				2393182C1100879E00DD5645 /* notifiable.rb in Resources */,
+				23931C1F11010BFF00DD5645 /* article_archiver.rb in Resources */,
+				23931D511101F52F00DD5645 /* about_controller.rb in Resources */,
+				23931D931101F7F900DD5645 /* about.rtf in Resources */,
+				2395290011050A170086E993 /* world_domination.rb in Resources */,
+				23271D771105FAFD00B8A53F /* autorun.bak.sh in Resources */,
+				236DF16A1107521F00044020 /* unread_articles_list.rb in Resources */,
+				236DF18B110752DA00044020 /* single_articles_processor.rb in Resources */,
+				23A2CDD111076FCF00574599 /* gems in Resources */,
+				23A2CEE31108AC2C00574599 /* premade_bundles_processor.rb in Resources */,
+				23A2CF0E1108B4BC00574599 /* premade_bundle_file.rb in Resources */,
+				234D33BF110B2601002688E4 /* bootstrap.rb in Resources */,
+				232B0A2C110C68C400BFE239 /* single_article_files.rb in Resources */,
+				23B98ED9110E4BCE00600227 /* MainMenu.xib in Resources */,
+				231549AF1110CCA400473CA3 /* config.rb in Resources */,
+				23DE1AE21116E4D0008815F8 /* dsa_pub.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		172754BC107597F200D0347B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/macruby Tests/run_suite.rb";
+		};
+		232B0ADF110C740700BFE239 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PROJECT_DIR/add_builddate_to_plist.rb \"$TARGET_BUILD_DIR/$CONTENTS_FOLDER_PATH/Info.plist\"\n\ninstall_name_tool -change /usr/lib/EMKeychain.dylib \"@executable_path/../Resources/EMKeychain.dylib\" \"$TARGET_BUILD_DIR/$PROJECT_NAME.app/Contents/MacOS/$PROJECT_NAME\"\ninstall_name_tool -change /usr/local/lib/EMKeychain.dylib \"@executable_path/../Resources/EMKeychain.dylib\" \"$TARGET_BUILD_DIR/$PROJECT_NAME.app/Contents/MacOS/$PROJECT_NAME\"\n";
+		};
+		233227D81109B43300419259 /* Embed, Compile, Fix */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed, Compile, Fix";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH=\"$PATH:/usr/local/bin\" macruby_deploy --verbose --embed --compile `$PROJECT_DIR/get_req_stdlibs.rb` \"$TARGET_BUILD_DIR/$PROJECT_NAME.app\"\n\n# install_name_tool -change /Library/Frameworks/MacRuby.framework/Versions/0.6/usr/lib/libmacruby.dylib \"@executable_path/../Frameworks/MacRuby.framework/Versions/0.6/usr/lib/libmacruby.dylib\" \"$TARGET_BUILD_DIR/$PROJECT_NAME.app/Contents/MacOS/$PROJECT_NAME\"\n\ninstall_name_tool -change /usr/lib/EMKeychain.dylib \"@executable_path/../Resources/EMKeychain.dylib\" \"$TARGET_BUILD_DIR/$PROJECT_NAME.app/Contents/MacOS/$PROJECT_NAME\"\n\ninstall_name_tool -change /usr/local/lib/EMKeychain.dylib \"@executable_path/../Resources/EMKeychain.dylib\" \"$TARGET_BUILD_DIR/$PROJECT_NAME.app/Contents/MacOS/$PROJECT_NAME\"\n\nfor F in $TARGET_BUILD_DIR/$PROJECT_NAME.app/Contents/Resources/*.rbo; do\n  # install_name_tool -change /Library/Frameworks/MacRuby.framework/Versions/0.6/usr/lib/libmacruby.dylib \"@executable_path/../Frameworks/MacRuby.framework/Versions/0.6/usr/lib/libmacruby.dylib\" \"$F\"\n\n  install_name_tool -change /usr/lib/EMKeychain.dylib \"@executable_path/../Resources/EMKeychain.dylib\" \"$F\"\n  install_name_tool -change /usr/local/lib/EMKeychain.dylib \"@executable_path/../Resources/EMKeychain.dylib\" \"$F\"\ndone\n";
+		};
+		23DE1AE61116E9F7008815F8 /* Package & appcast generation */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Package & appcast generation";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nDOWNLOAD_BASE_URL=\"http://e1h22.simplecdn.net/ephemera\"\nRELEASENOTES_URL=\"http://goephemera.com/release-notes.html#version-$VERSION\"\n\nARCHIVE_FILENAME=\"${PROJECT_NAME}_${VERSION}.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key (Ephemera)\"\nKEYCHAIN_FTP_PASS=\"SimpleCDN Upload Bucket (Ephemera)\"\n\nWD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nditto -ck --keepParent \"$PROJECT_NAME.app\" \"$ARCHIVE_FILENAME\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | /usr/bin/perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g' | /usr/bin/perl -MXML::LibXML -e 'print XML::LibXML->new()->parse_file(\"-\")->findvalue(q(//string[preceding-sibling::key[1] = \"NOTE\"]))') \\\n\t| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\nFTP_PASS=$(\n  security find-generic-password -g -s \"$KEYCHAIN_FTP_PASS\" 2>&1 1>/dev/null \\\n  | /usr/bin/perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g' \\\n  | /usr/bin/perl -MXML::LibXML -e 'print XML::LibXML->new()->parse_file(\"-\")->findvalue( q(//string[preceding-sibling::key[1] = \"NOTE\"]) )'\n)\n\n[ $FTP_PASS ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_FTP_PASS'\" from keychain; false; }\n\ncat <<EOF\n    <item>\n      <title>Version $VERSION</title>\n      <sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n      <pubDate>$PUBDATE</pubDate>\n      <enclosure\n        url=\"$DOWNLOAD_URL\"\n        sparkle:version=\"$VERSION\"\n        type=\"application/octet-stream\"\n        length=\"$SIZE\"\n        sparkle:dsaSignature=\"$SIGNATURE\"\n      />\n    </item>\nEOF\n\necho\necho \"Uploading to SimpleCDN...\"\necho\n\necho \"put $ARCHIVE_FILENAME\" | ftp -v ftp://ephemera:$FTP_PASS@upload-ftp-2.simplecdn.com\n# scp '$BUILT_PRODUCTS_DIR/$ARCHIVE_FILENAME' dreamhost:goephemera.com/downloads\n# echo scp \"'$WD/appcast.xml'\" zottmann.org:goephemera.com/appcast.xml\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		233227DD1109B43600419259 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Ephemera */;
+			targetProxy = 233227DC1109B43600419259 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		23B98ED7110E4BCE00600227 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23B98ED8110E4BCE00600227 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		172754BE107597F200D0347B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Unit Tests";
+			};
+			name = Debug;
+		};
+		172754BF107597F200D0347B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Unit Tests";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		233227DA1109B43300419259 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Embed and Compile";
+			};
+			name = Debug;
+		};
+		233227DB1109B43300419259 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Embed and Compile";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		23DE1AE81116E9F7008815F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Distribution;
+			};
+			name = Debug;
+		};
+		23DE1AE91116E9F7008815F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Distribution;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug\"",
+					"\"$(SRCROOT)/../BWToolkit\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../Sparkle/With Garbage Collection\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../EMKeychain/build/Release\"",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = Ephemera;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug\"",
+					"\"$(SRCROOT)/../BWToolkit\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../Sparkle/With Garbage Collection\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../EMKeychain/build/Release\"",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = Ephemera;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+				VALID_ARCHS = "x86_64 i386";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		172754C7107597F400D0347B /* Build configuration list for PBXAggregateTarget "Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				172754BE107597F200D0347B /* Debug */,
+				172754BF107597F200D0347B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		233227E31109B44300419259 /* Build configuration list for PBXAggregateTarget "Embed & Compile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233227DA1109B43300419259 /* Debug */,
+				233227DB1109B43300419259 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23DE1AF51116EA0E008815F8 /* Build configuration list for PBXAggregateTarget "Distribution" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23DE1AE81116E9F7008815F8 /* Debug */,
+				23DE1AE91116E9F7008815F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Ephemera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Ephemera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
