@@ -10,7 +10,7 @@ I wrote Ephemera a) to learn MacRuby and b) to scratch an itch I had.  Since the
 
 I've made [several blog posts](http://blog.zottmann.org/tagged/ephemera) about Ephemera and its development.
 
-It's hacky and rather poorly documented, mostly in German.  The code is rather simple, though, so brave prospectors will be probably be safe.
+It's hacky and rather poorly documented, mostly in German.  The code is rather simple, though, so brave prospectors will probably be safe.
 
 The Distribution target contains Sparkle appcast generation and file upload.  The latter will not work because of missing Keychain entries (server passwords/keys), but I left it in for "demonstration purposes".
 
