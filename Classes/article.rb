@@ -95,7 +95,10 @@ module Instapaper
         "//noscript",
         "//@*[local-name()='style']",
         "//div[contains(@class, 'top')]",
-        "//div[contains(@class, 'bar')][1]"
+        "//div[contains(@class, 'bar')][1]",
+		"//div[@id='text_controls_toggle']",
+		"//div[@id='text_controls']",
+		"//div[@id='editing_controls']"
       ].join("|")
       
       @doc.nodesForXPath(xpath_selectors, error: error).each { |n| n.detach }
