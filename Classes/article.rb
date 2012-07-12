@@ -94,6 +94,7 @@ module Instapaper
         "//meta",
         "//noscript",
         "//@*[local-name()='style']",
+        "//div[@id='controlbar_container']",
         "//div[contains(@class, 'top')]",
         "//div[contains(@class, 'bar')][1]",
 		"//div[@id='text_controls_toggle']",
