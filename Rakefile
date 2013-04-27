@@ -1,4 +1,4 @@
-namespace :debug do
+﻿namespace :debug do
 
   namespace :prefs do
 

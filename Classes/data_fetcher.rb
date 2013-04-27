@@ -6,8 +6,8 @@
 #  Copyright (c) 2010 Carlo Zottmann. All rights reserved.
 #
 
+require "bootstrap"
 require "notifiable"
-
 
 module Instapaper
 
@@ -41,7 +41,6 @@ module Instapaper
         cachePolicy: NSURLRequestReloadIgnoringCacheData,
         timeoutInterval: @timeout
       )
-      
       @connection = NSURLConnection.connectionWithRequest(@request, delegate: self)
     end
 
@@ -53,6 +52,7 @@ module Instapaper
     
     
     def connection(connection, didReceiveData:data)
+      log("connection:didReceiveData")
       # NSLog("#{self.class}#didReceiveData")
       @data.appendData(data)
     end
