@@ -199,7 +199,7 @@ class WindowController < Controller
         article = a[:article]
         msg = article.site + ": " + article.title
         holler(msg, "→")
-        log("singlearticlesprocessor_status", "- #{msg}")
+        log("singlearticlesprocessor_status", "- " + a[:id].to_s + ": " + msg)
       end
       
       log("singlearticlesprocessor_status", "processing unread articles")

@@ -1,0 +1,853 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="robots" content="noindex"/>
+        <link rel="icon" href="/images/favicon.png"/>
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="/javascript/jquery-1.7.1.min.js"></script>
+        <style type="text/css">
+            body {
+                font-family: Verdana, Helvetica, Arial, sans-serif;
+                font-size: 15px;
+                word-wrap: break-word;
+                margin: 90px auto 0px auto;
+                padding-bottom: 100px; /* pagination buffer */
+                position: relative;
+            }
+						
+            h1 { font-size: 1.2em; font-weight: normal; }
+            h2 { font-size: 1.15em; }
+                        
+			#titlebar {
+				direction: ltr;
+			}
+			
+            #titlebar h1 {
+                color: #000;
+                font-size: 24px;
+                font-weight: normal;
+                font-family: Georgia, serif;
+                padding-bottom: 0;
+                margin-bottom: 0;
+                text-rendering: optimizeLegibility;
+            }
+			
+				body.ipad #titlebar h1 {
+                    font-size: 26px;
+				}
+            
+            #footer {
+				direction: ltr;
+                border-top: 1px solid #aaa;
+                margin-bottom: 20px;
+            }
+            
+				#fin {
+					text-align: center;
+					color: #888;
+					font-size: 14px;
+					margin-top: 48px;
+				}
+				
+				body.ipad #fin {
+					font-size: 18px;
+					margin-top: 96px;
+				}
+
+			img { border: 0; }
+            #story img { display: block; margin: 0.5em auto; max-width: 100%; }
+            
+            #ipfootnotes { display: none; }
+            
+            .ipfootnote_ref {
+                display: inline-block;
+                background-image: url('/images/footnote-ref.png');
+                background-size: 1.8em 1.0em;
+                width: 1.8em;
+                height: 1em;
+                margin: 0 0.2em;
+            	vertical-align: -0.1em;
+                background-repeat: no-repeat;
+
+            }
+			
+			.ipfootnote_ref:after {
+				content: counter;
+			}
+
+			
+            a.original, a.original:visited, a.original:active {
+                text-decoration: none;
+                color: #555;
+            }
+
+			.orig_line {
+                font-family: Helvetica, sans-serif;
+                color: #888;
+				font-size: 14px;
+			}
+            
+            .orig_line img {
+                vertical-align: -2px;
+            }
+            
+            .orig_line .author {
+                font-weight: bold;
+            }
+            
+            .orig_line .byline_divider {
+                padding: 0 0.25em;
+            }
+            
+            pre, code { overflow: scroll; }
+            #story { 
+                clear: both; 
+                overflow: hidden; 
+                margin-bottom: 40px;
+				direction: ltr;
+            }
+
+            #story div {
+                margin: 1em 0;
+            }
+            
+            blockquote {
+                border-top: 1px solid #bbb;
+                border-bottom: 1px solid #bbb;
+                margin: 1.5em 0;
+                padding: 0.5em 0;
+            }
+            blockquote.short { font-style: italic; padding: 0 1em; border-top: 0; border-bottom: 0; }
+            body.ipad blockquote.short { padding: 0 2em; }
+            
+            pre { white-space: pre-wrap; }
+
+            sup, sub {
+            	height: 0;
+            	line-height: 1;
+            	vertical-align: baseline;
+            }
+
+            ul.bodytext, ol.bodytext {
+            	list-style: none;
+            	margin-left: 0;
+            	padding-left: 0em;
+            }
+
+            .popover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200px;
+                max-height: 280px;
+                overflow: scroll;
+                border-radius: 12px;
+                background-color: #fafafa;
+                color: #3F3F3F;
+                padding: 18px;
+                border: 3px solid #606060;
+                box-shadow: 0 5px 20px 7px rgba(0, 0, 0, 0.3);
+                z-index: 1300;
+            }
+                .popover > :first-child { margin-top: 0; padding-top: 0; }
+                .popover > :last-child { margin-bottom: 0; padding-bottom: 0; }
+            
+            #controlbar_container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1337;
+                background-color: #f8f8f8;
+                background-image: -webkit-linear-gradient(#f8f8f8, #eaeaea);
+                border-bottom: 1px solid #aaa;
+                box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+                height: 40px;
+            }
+            
+                #controlbar {
+                    margin: 0 auto;
+                    font-family: Helvetica, Arial, sans-serif;
+                    -webkit-text-size-adjust: none;
+                }
+                
+                #controlbar #left_buttons, #controlbar #right_buttons { width: 210px; }
+                #controlbar #left_buttons {
+            		float: left;
+                }
+                #controlbar #right_buttons {
+                    float: right;
+                    text-align: right;
+                }
+
+                .logged_out #controlbar #left_buttons, .logged_out #controlbar #right_buttons { width: 150px; }
+                
+                #controlbar a, 
+                #controlbar a:visited, 
+                #controlbar a:active { 
+                    display: inline-block;
+                    position: relative;
+                    color: #555;
+                    border-left: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    text-decoration: none;
+                    height: 29px;
+                    text-align: center;
+                    margin: 0;
+                    min-width: 35px;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    padding-top: 11px;
+                }
+
+                #controlbar #title_label {
+                    text-align: center;
+                    font-size: 12px;
+                    padding-top: 13px;
+                    color: #555;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+				
+				#controlbar #title_label a,
+				#controlbar #title_label a:visited,
+				#controlbar #title_label a:active {
+					display: inline;
+					position: static;
+					height: auto;
+					padding: 0;
+					border: 0;
+					margin: 0;
+				}
+                                
+                #controlbar.hover_capable a.textbutton:hover {
+                    background-color: #e0e0e0;
+                    background-image: -webkit-linear-gradient(#e8e8e8, #d8d8d8);                    
+                }
+
+                #controlbar a.promobutton, 
+                #controlbar a.promobutton:visited, 
+                #controlbar a.promobutton:active {
+                    background-image: url('/images/icon4-58-stroked.png');
+					background-size: 31px 31px;
+                    background-repeat: no-repeat;
+                    background-position: 5px 50%;
+                }
+                    #controlbar.hover_capable a.promobutton:hover {
+                        background-color: #e0e0e0;
+                        background-image: url('/images/icon4-58-stroked.png'), -webkit-linear-gradient(#e8e8e8, #d8d8d8);                   
+						background-size: 31px 31px, cover;
+                    }
+					
+					#controlbar .promotext { padding-left: 28px; }
+
+                
+                #controlbar a.archivebutton, 
+                #controlbar a.archivebutton:visited, 
+                #controlbar a.archivebutton:active {
+                    background-image: url('/images/icon_archive.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+					background-size: 21px 24px;
+                }
+                    #controlbar.hover_capable a.archivebutton:hover {
+                        background-color: #e0e0e0;
+                        background-image: url('/images/icon_archive.png'), -webkit-linear-gradient(#e8e8e8, #d8d8d8);                    
+						background-size: 21px 24px, cover;
+                    }
+
+                #controlbar a.likebutton, 
+                #controlbar a.likebutton:visited, 
+                #controlbar a.likebutton:active {
+                    background-image: url('/images/icon_like_off.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+					background-size: 22px 19px;
+                }
+                    #controlbar.hover_capable a.likebutton:hover {
+                        background-color: #e0e0e0;
+                        background-image: url('/images/icon_like_off.png'), -webkit-linear-gradient(#e8e8e8, #d8d8d8);                    
+						background-size: 22px 19px, cover;
+                    }
+
+                #controlbar a.unlikebutton, 
+                #controlbar a.unlikebutton:visited, 
+                #controlbar a.unlikebutton:active {
+                    background-image: url('/images/icon_like_on.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+					background-size: 22px 19px;
+                }
+                    #controlbar.hover_capable a.unlikebutton:hover {
+                        background-color: #e0e0e0;
+                        background-image: url('/images/icon_like_on.png'), -webkit-linear-gradient(#e8e8e8, #d8d8d8);                    
+						background-size: 22px 19px, cover;
+                    }
+
+                #controlbar a.textcontrolsbutton, 
+                #controlbar a.textcontrolsbutton:visited, 
+                #controlbar a.textcontrolsbutton:active {
+                    background-image: url('/images/icon_textcontrols.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+					background-size: 28px 26px;
+                }
+                    #controlbar.hover_capable a.textcontrolsbutton:hover {
+                        background-color: #e0e0e0;
+                        background-image: url('/images/icon_textcontrols.png'), -webkit-linear-gradient(#e8e8e8, #d8d8d8);                    
+						background-size: 28px 26px, cover;
+                    }
+
+
+                #controlbar a.actionsbutton, 
+                #controlbar a.actionsbutton:visited, 
+                #controlbar a.actionsbutton:active {
+                    background-image: url('/images/icon_actions.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+					background-size: 23px 18px;
+                }
+                    #controlbar.hover_capable a.actionsbutton:hover {
+                        background-color: #e0e0e0;
+                        background-image: url('/images/icon_actions.png'), -webkit-linear-gradient(#e8e8e8, #d8d8d8);                    
+						background-size: 23px 18px, cover;
+                    }
+                
+                #controlbar #left_buttons a, 
+                #controlbar #left_buttons a:visited, 
+                #controlbar #left_buttons a:active { 
+                    border-left: 0;
+                }
+
+                #controlbar #right_buttons a, 
+                #controlbar #right_buttons a:visited, 
+                #controlbar #right_buttons a:active { 
+                    border-right: 0;
+                }
+				
+				#controlbar #origbutton {
+					font-size: 20px;
+                    padding-top: 6px;
+				}
+                
+                .dropmenu {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    width: 200px;
+                    z-index: 1336;
+                    background-color: #fafafa;
+                    color: #3F3F3F;
+                    padding: 10px;
+                    border: 1px solid #888;
+                    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+                    font-size: 18px;
+					border-bottom-left-radius: 8px;
+					border-bottom-right-radius: 8px;
+                }
+                    
+                #controlbar #left_buttons .dropmenu { left: -1px; }
+                #controlbar #right_buttons .dropmenu { right: -1px; }
+                    				
+				.dropmenu .menugroup, .dropmenu .buttongrid {
+                    margin: 10px 0;					
+				}
+
+                .dropmenu .menugroup {
+                    border: 2px solid #ccc;
+					border-radius: 8px;
+                }
+				
+                .dropmenu .menugroup:first-child, .dropmenu .buttongrid:first-child { margin-top: 0; }
+                .dropmenu .menugroup:last-child, .dropmenu .buttongrid:last-child { margin-bottom: 0; }
+                
+                .dropmenu .buttongrid .button {
+                    display: inline-block;
+					text-align: center;
+                    padding: 5px 0;
+					border: 5px solid #eee;
+					margin: 0 2%;
+                }
+					.dropmenu .buttongrid .button:first-child { margin-left: 0; }
+					.dropmenu .buttongrid .button:last-child { margin-right: 0; }
+						
+					.dropmenu .buttongrid3 .button { width: 26%; }
+					.dropmenu .buttongrid2 .button { width: 43%; }
+
+					/* selected buttons */
+				    body.darkmode .dropmenu .buttongrid .darkmodebutton,
+				    body.lightmode .dropmenu .buttongrid .lightmodebutton,
+				    body.sepiamode .dropmenu .buttongrid .sepiamodebutton,
+				    body.georgiamode .dropmenu .buttongrid .georgiamodebutton,
+				    body.verdanamode .dropmenu .buttongrid .verdanamodebutton,
+				    body.helveticamode .dropmenu .buttongrid .helveticamodebutton,
+					body.narrowmode .dropmenu .buttongrid .narrowmodebutton,
+					body.medwidthmode .dropmenu .buttongrid .medwidthmodebutton,
+					body.widemode .dropmenu .buttongrid .widemodebutton
+					{ border: 5px solid #555; }
+
+				.dropmenu .menugroup .button:first-child {
+					border-top-left-radius: 5px;
+					border-top-right-radius: 5px;	
+				}
+				
+				.dropmenu .menugroup .button:last-child {
+					border-bottom-left-radius: 5px;
+					border-bottom-right-radius: 5px;	
+				}
+				
+                .hover_capable .dropmenu .buttongroup .button:hover,
+                .hover_capable .dropmenu .menugroup .button:hover {
+                    background-color: #ccc;
+                }
+                
+                .dropmenu .menugroup .button {
+                    padding: 10px;
+                    background-color: #f8f8f8;
+                }
+                
+                .textcontrolsmenu { width: 248px; }
+				
+				.dropmenu .columnwidthbuttons .button { line-height: 6px; padding-top: 0; padding-bottom: 11px; }
+
+            /* user style */
+            body { max-width: 625px; }
+            #story, #titlebar h1, .popover { font-family: Georgia, serif; }
+            #story, .popover {
+                font-size: 16px; 
+                line-height: 1.5; 
+            }
+            #story, #titlebar, #footer { margin-left: 10px; margin-right: 10px; }
+            body { color: #222; background-color: #f4f4f4; }
+            a, a:visited, a:active { color: #5454AA; }
+
+            /* 320-pixel layout for iPhone-sized screens */
+            @media (max-width: 580px) {
+                body {
+                    margin-top: 60px;
+                }
+                
+                #titlebar h1 {
+                    font-size: 20px;
+                }
+                
+                #controlbar_container {
+                    height: 34px;
+					position: absolute;
+					top: -60px;
+                }
+				
+				#controlbar a.promobutton {
+					padding-right: 7px;
+				}
+                
+                #controlbar #backbutton, #controlbar .promotext
+                { display: none; }
+
+                #controlbar #left_buttons { width: 55px; }
+                #controlbar #right_buttons { width: 155px; }
+                .logged_out #controlbar #left_buttons { width: 50px; }
+                .logged_out #controlbar #right_buttons { width: 57px; }
+                
+                #controlbar a, 
+                #controlbar a:visited, 
+                #controlbar a:active { 
+                    min-width: 20px;
+                    padding-top: 4px;
+                    height: 30px;
+                }
+                
+                #controlbar #title_label {
+                    padding-top: 10px;
+                }
+				
+				.dropmenu .columnwidthbuttons { display: none; }
+				.dropmenu .colormodebuttons { margin-bottom: 0; }
+            }
+			
+			/* printer-friendly */
+			@media print {
+				#controlbar_container, #fin { display: none; }
+				body { margin-top: 0; }
+
+	            #ipfootnotes {
+					display: block;
+					border-top: 1pt solid #000;
+					margin-top: 3em;
+					padding-top: 1em;
+	            }
+				#ipfootnotes:before { content: "Footnotes:"; }
+				.ipfootnote_ref {
+					display: inline;
+					width: auto;
+					height: auto;
+					background: none;
+				}
+			}
+			
+			/* size modes */
+			body.size1mode #story, body.size1mode .popover { font-size: 11px; }
+			body.size2mode #story, body.size2mode .popover { font-size: 14px; }
+			body.size3mode #story, body.size3mode .popover { font-size: 16px; }
+			body.size4mode #story, body.size4mode .popover { font-size: 18px; }
+			body.size5mode #story, body.size5mode .popover { font-size: 22px; }
+			body.size6mode #story, body.size6mode .popover { font-size: 28px; }
+			body.size7mode #story, body.size7mode .popover { font-size: 36px; }
+			
+			/* font modes */
+			body.georgiamode #titlebar h1, body.georgiamode #story, body.georgiamode .popover { font-family: Georgia, Times, serif; }
+			body.georgiamode #story { line-height: 1.5; }
+			body.verdanamode #titlebar h1, body.verdanamode #story, body.verdanamode .popover { font-family: Verdana, sans-serif; }
+            body.verdanamode #story { line-height: 1.64; }
+			body.helveticamode #titlebar h1, body.helveticamode #story, body.helveticamode .popover { font-family: Helvetica, Arial, sans-serif; }
+			body.helveticamode #story { line-height: 1.5; }
+			
+			/* width modes */
+            body.narrowmode { max-width: 480px; }
+            body.medwidthmode { max-width: 625px; }
+            body.widemode { max-width: 900px; }
+                        
+            /* sepia mode */
+            body.sepiamode, body.sepiamode #titlebar h1 {
+                background-color: #f7f2e6; color: #403929;
+            }
+
+            body.sepiamode a, body.sepiamode a:visited, body.sepiamode a:active { color: #665733; }
+
+            body.sepiamode .popover {
+                background-color: #faf7f0;
+                color: #403929;
+            }
+            
+            body.sepiamode #controlbar_container {
+                background-color: #f7f2e6;
+                background-image: -webkit-linear-gradient(#f7f2e6, #ebe6da);
+                border-bottom: 1px solid #aba79f;
+            }
+
+			body.sepiamode #controlbar.hover_capable a.promobutton { opacity: 0.75; }
+            body.sepiamode #controlbar.hover_capable a.promobutton:hover {
+                background-color: #e8e3d8;
+                background-image: url('/images/icon4-58-stroked.png'), -webkit-linear-gradient(#e8e3d8, #d9d4ca);                    
+            }			
+            
+            body.sepiamode #controlbar.hover_capable a.textbutton:hover {
+                background-color: #e8e3d8;
+                background-image: -webkit-linear-gradient(#e8e3d8, #d9d4ca);                    
+            }
+
+            body.sepiamode #controlbar.hover_capable a.archivebutton:hover {
+                background-color: #e8e3d8;
+                background-image: url('/images/icon_archive.png'), -webkit-linear-gradient(#e8e3d8, #d9d4ca);                    
+            }
+            
+            body.sepiamode #controlbar.hover_capable a.likebutton:hover {
+                background-color: #e8e3d8;
+                background-image: url('/images/icon_like_off.png'), -webkit-linear-gradient(#e8e3d8, #d9d4ca);                    
+            }
+
+            body.sepiamode #controlbar.hover_capable a.unlikebutton:hover {
+                background-color: #e8e3d8;
+                background-image: url('/images/icon_like_on.png'), -webkit-linear-gradient(#e8e3d8, #d9d4ca);                    
+            }
+
+            body.sepiamode #controlbar.hover_capable a.textcontrolsbutton:hover {
+                background-color: #e8e3d8;
+                background-image: url('/images/icon_textcontrols.png'), -webkit-linear-gradient(#e8e3d8, #d9d4ca);                    
+            }
+            body.sepiamode #controlbar.hover_capable a.actionsbutton:hover {
+                background-color: #e8e3d8;
+                background-image: url('/images/icon_actions.png'), -webkit-linear-gradient(#e8e3d8, #d9d4ca);                    
+            }
+            
+            
+            /* dark mode */
+            body.darkmode, body.darkmode #titlebar h1 {
+                background-color: #131313;
+                color: #878787;
+            }
+            
+            body.darkmode .popover {
+                background-color: #333;
+                color: #E5E5E5;
+            }
+            body.darkmode a, body.darkmode a:visited, body.darkmode a:active { color: #BABACC; }
+            
+            body.darkmode #story img { opacity: 0.2; -webkit-transition: opacity 0.25s linear; }
+            body.darkmode #story img:hover { opacity: 1.0; }
+            
+            body.darkmode #controlbar_container {
+                background-color: #333;
+                background-image: -webkit-linear-gradient(#222, #131313);
+                border-bottom: 1px solid #555;
+            }
+            
+            body.darkmode #controlbar #title_label { color: #777; }
+            
+            body.darkmode #controlbar a, 
+            body.darkmode #controlbar a:visited, 
+            body.darkmode #controlbar a:active { 
+                color: #777;
+                border-left: 1px solid #555;
+                border-right: 1px solid #555;
+            }
+
+			body.darkmode #controlbar.hover_capable a.promobutton { opacity: 0.75; }
+            body.darkmode #controlbar.hover_capable a.promobutton:hover {
+                background-image: url('/images/icon4-58-stroked.png'), -webkit-linear-gradient(#888, #777);                    
+            }
+
+            body.darkmode #controlbar.hover_capable a:hover {
+                background-color: #888;
+                color: #ccc;
+                background-image: -webkit-linear-gradient(#888, #777);                    
+            }
+
+            body.darkmode #controlbar.hover_capable a.archivebutton:hover {
+                background-image: url('/images/icon_archive.png'), -webkit-linear-gradient(#888, #777);                    
+            }
+            
+            body.darkmode #controlbar.hover_capable a.likebutton:hover {
+                background-image: url('/images/icon_like_off.png'), -webkit-linear-gradient(#888, #777);                    
+            }
+
+            body.darkmode #controlbar.hover_capable a.unlikebutton:hover {
+                background-image: url('/images/icon_like_on.png'), -webkit-linear-gradient(#888, #777);                    
+            }
+
+            body.darkmode #controlbar.hover_capable a.textcontrolsbutton:hover {
+                background-image: url('/images/icon_textcontrols.png'), -webkit-linear-gradient(#888, #777);                    
+            }
+
+            body.darkmode #controlbar.hover_capable a.actionsbutton:hover {
+                background-image: url('/images/icon_actions.png'), -webkit-linear-gradient(#888, #777);                    
+            }
+
+        </style>
+		<!--[if lt IE 9]>
+		<style type="text/css">
+			/* this is how I solve old-IE problems and nobody seems to mind */
+			#controlbar_container { display: none; }
+		</style>
+		<![endif]-->
+		<script type="text/javascript">
+			function createCookie(name,value,days) {
+				if (days) {
+					var date = new Date();
+					date.setTime(date.getTime()+(days*24*60*60*1000));
+					var expires = "; expires="+date.toGMTString();
+				}
+				else var expires = "";
+				document.cookie = name+"="+value+expires+"; path=/";
+			}
+
+			function readCookie(name) {
+				var nameEQ = name + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0;i < ca.length;i++) {
+					var c = ca[i];
+					while (c.charAt(0)==' ') c = c.substring(1,c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+				}
+				return null;
+			}
+			
+			function ancestorOrSelfHasClass(node, className)
+			{
+                var parent = node;
+                while (parent && parent != document.body && parent.nodeType != 9) {
+                    if ($(parent).hasClass(className)) return true;
+                    parent = parent.parentNode;
+                }
+				return false;
+			}
+		
+            function clearPopovers(event)
+            {
+				if (ancestorOrSelfHasClass(event.target, 'popover')) return;
+                var popovers = document.getElementsByClassName('popover');
+                for (var i = 0; i < popovers.length; i++) {
+                    popovers[i].parentNode.removeChild(popovers[i]);
+                }
+            }
+        
+            function footnoteLinkTapped(event)
+            {
+                var link = event.target;
+                var fnid = link.href.substring(link.href.indexOf('#') + 1);
+                var target_fn = document.getElementById(fnid);
+                if (! target_fn) return true;
+                event.preventDefault();
+                event.stopPropagation();
+                clearPopovers(event);
+                
+                var popoverWidth = Math.max(240, Math.floor(document.body.offsetWidth / 1.5));
+                var popoverX = link.offsetLeft;
+                var overflowRight = (popoverX + popoverWidth + 48 /* popover padding */) - document.body.offsetWidth;
+                if (overflowRight > 0) popoverX -= overflowRight;
+                
+                var popover = document.createElement('div');
+                popover.setAttribute('class', 'popover');
+                popover.innerHTML = target_fn.innerHTML;
+                popover.style.top = (link.offsetTop + 20 /* popover top margin */) + 'px';
+                popover.style.left = popoverX + 'px';
+                popover.style.width = popoverWidth + 'px';                
+                document.body.appendChild(popover);
+            }
+            
+            function attachLinkListeners()
+            {
+                // Pull footnotes out of <sup> elements and remove any numbers or text in their ref links
+                var fnrefs = document.getElementsByClassName('ipfootnote_ref');                
+                for (var i = 0; i < fnrefs.length; i++) {
+                    fnrefs[i].innerHTML = '';
+                    fnrefs[i].addEventListener('click', footnoteLinkTapped, false);
+                }
+                document.body.addEventListener('click', clearPopovers, false);
+                document.body.addEventListener('touchstart', clearPopovers, false);
+				
+				// Cancel-click handlers
+				$('html').click(function() { $('.dropmenu').hide(); clearPopovers(event); event.stopPropagation(); });
+
+				// Remove hover-simulation and move onclick to ontouchstart for faster iOS responsiveness
+				if ('ontouchstart' in document) {
+					$('.hover_capable').removeClass('hover_capable');
+					$('html').each(function() { 
+						this.ontouchstart = function(event){ 
+							if (ancestorOrSelfHasClass(event.target, 'popover')) return;
+							if (ancestorOrSelfHasClass(event.target, 'touchignore')) return;
+							$('.dropmenu').hide(); 
+							clearPopovers(event);
+							event.stopPropagation(); 
+						};
+					});
+					
+					$('.dropmenu .button, .textcontrolsbutton, .archivebutton, .actionsbutton, .likebutton, .unlikebutton').each(function() {
+						this.ontouchstart = this.onclick;
+						this.onclick = null;
+					});
+				}
+            }
+			
+			function changeTextSize(direction)
+			{
+				var currentSize = readCookie('iptsize');
+				if (! currentSize || ! (currentSize = parseInt(currentSize)) ) currentSize = 3;
+				currentSize += parseInt(direction);
+				if (currentSize < 1) currentSize = 1;
+				else if (currentSize > 7) currentSize = 7;
+
+				$('body').removeClass('size1mode size2mode size3mode size4mode size5mode size6mode size7mode').addClass('size' + currentSize + 'mode');
+				createCookie('iptsize', currentSize, 3650);
+			}
+			
+			function selectFont(name)
+			{
+				$('body').removeClass('georgiamode verdanamode helveticamode').addClass(name + 'mode');
+				createCookie('iptfont', name + 'mode', 3650);
+			}
+			
+			function selectColor(name)
+			{
+				$('body').removeClass('lightmode darkmode sepiamode').addClass(name + 'mode');
+				createCookie('iptcolor', name + 'mode', 3650);
+			}
+			
+			function selectWidth(name)
+			{
+				$('body').removeClass('narrowmode medwidthmode widemode').addClass(name + 'mode');
+				createCookie('iptwidth', name + 'mode', 3650);
+			}
+			
+			function dropMenu(cls)
+			{
+				var wasVisible = $('.' + cls).css('display') != 'none';
+				$('.dropmenu').hide();
+				if (! wasVisible) $('.' + cls).toggle();
+			}
+			
+            function toggleLiked(btn)
+            {
+                if ($(btn).hasClass('likebutton')) {
+                    $('.likebutton, .unlikebutton').removeClass('likebutton unlikebutton').addClass('unlikebutton');
+                } else {
+                    $('.likebutton, .unlikebutton').removeClass('likebutton unlikebutton').addClass('likebutton');
+                }
+                
+                $.ajax({ url: '/star_toggle/380083113?ajax=2' });
+            }
+
+            function archiveOrDelete(del)
+            {
+                $('#title_label').text(del ? 'Deleting\u2026' : 'Archiving\u2026');
+                $.ajax({ url: '/' + (del ? 'delete' : 'skip') + '/380083113?ajax=2&r=%2Fu' });
+            }
+
+		</script>
+		<title>Why Sleep Deprivation Eases Depression: Scientific American</title>
+    </head>
+    <body onload="attachLinkListeners();" onclick="$('.dropmenu').hide(); event.stopPropagation();" class="size3mode lightmode medwidthmode georgiamode">
+        <div id="controlbar_container" class="touchignore">
+            <div id="controlbar" class="hover_capable">
+                <div id="left_buttons">
+					<a href="/u" class="textbutton" id="backbutton">Back to Articles</a><a 
+                    href="javascript:void(0)" onclick="event.preventDefault(); event.stopPropagation(); dropMenu('archivemenu');" class="archivebutton">&nbsp;<div class="dropmenu archivemenu">
+                        <div class="menugroup">
+                            <div class="button" onclick="setTimeout('archiveOrDelete(0);', 1);">Move to Archive</div>
+                        </div>
+                        <div class="menugroup">
+                            <div class="button" onclick="setTimeout('archiveOrDelete(1);', 1);">Delete</div>
+                        </div>
+                    </div></a>                </div>
+                <div id="right_buttons">
+                    <a href="javascript:void(0)" class="likebutton" onclick="event.preventDefault(); event.stopPropagation(); toggleLiked(this);">&nbsp;</a><a href="javascript:void(0)" class="textcontrolsbutton" onclick="event.preventDefault(); event.stopPropagation(); dropMenu('textcontrolsmenu');">&nbsp;<div class="dropmenu textcontrolsmenu">
+                        <div class="buttongrid buttongrid2"><div class="button" style="font-variant: small-caps;" onclick="changeTextSize(-1); event.stopPropagation(); event.preventDefault();">a</div><div class="button" onclick="changeTextSize(1); event.stopPropagation(); event.preventDefault();">A</div></div>
+                        <div class="buttongrid buttongrid3"><div class="button georgiamodebutton" onclick="selectFont('georgia'); event.stopPropagation(); event.preventDefault();"><span style="font-family: Georgia; font-size: 14px; vertical-align: 2px;">Georgia</span></div><div class="button verdanamodebutton" onclick="selectFont('verdana'); event.stopPropagation(); event.preventDefault();"><span style="font-family: Verdana, sans-serif; font-size: 13px; vertical-align: 2px;">Verdana</span></div><div class="button helveticamodebutton" onclick="selectFont('helvetica'); event.stopPropagation(); event.preventDefault();"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 14px; vertical-align: 2px;">Helvetica</span></div></div>
+                        <div class="buttongrid buttongrid3 colormodebuttons"><div class="button lightmodebutton" style="background-color: #f4f4f4; color: #444;" onclick="selectColor('light'); event.stopPropagation(); event.preventDefault();">&nbsp;</div><div class="button darkmodebutton" style="background-color: #131313; color: #878787;" onclick="selectColor('dark'); event.stopPropagation(); event.preventDefault();">&nbsp;</div><div class="button sepiamodebutton" style="background-color: #f4efd4; color: #454128;" onclick="selectColor('sepia'); event.stopPropagation(); event.preventDefault();">&nbsp;</div></div>
+						<div class="buttongrid buttongrid3 columnwidthbuttons"><div class="button narrowmodebutton" onclick="selectWidth('narrow'); event.stopPropagation(); event.preventDefault();">...<br/>...<br/>...</div><div class="button medwidthmodebutton" onclick="selectWidth('medwidth'); event.stopPropagation(); event.preventDefault();">.....<br/>.....<br/>.....</div><div class="button widemodebutton" onclick="selectWidth('wide'); event.stopPropagation(); event.preventDefault();">........<br/>........<br/>........</div></div>
+						
+                    </div></a>                </div>
+                <div id="title_label"><a href="http://www.scientificamerican.com/article.cfm?id=why-sleep-deprivation-eases-depression">Why Sleep Deprivation Eases Depression: Scientific American</a></div>
+            </div>
+        </div>
+        
+        <div id="titlebar">
+            <h1>Why Sleep Deprivation Eases Depression: Scientific American</h1>
+            <span class="orig_line"><a class="original" href="http://www.scientificamerican.com/article.cfm?id=why-sleep-deprivation-eases-depression">Scientific American <img style="width: 13px; height: 13px;" src="/images/orig-link.png"/></a>         </div>
+
+        <div id="story">
+		    <div>
+<div>
+<p>
+<img src="http://www.scientificamerican.com/media/inline/imported/a-fast-acting-antidepressant_1.jpg" alt="woman half asleep, sleepy head, woman with coffee cup" /><a href="http://www.scientificamerican.com//pinterest.com/pin/create/button/?url=http://www.scientificamerican.com/article.cfm?id=why-sleep-deprivation-eases-depression&amp;media=http://www.scientificamerican.com/media/inline/imported/a-fast-acting-antidepressant_1.jpg&amp;description="><img src="http://www.scientificamerican.com//assets.pinterest.com/images/pidgets/pin_it_button.png" alt="image" /></a><br /><br />
+<span>Image: SHARON DOMINICK <i>iStockphoto</i></span>
+</p>
+</div>
+<p><a href="http://www.scientificamerican.com/topic.cfm?id=sleep">Sleep</a> deprivation is a quick and efficient way to treat <a href="http://www.scientificamerican.com/topic.cfm?id=depression">depression</a>. It works 60 to 70 percent of the time—far better than existing drugs—but the mood boost usually lasts only until the patient falls asleep. As an ongoing treatment, sleep deprivation is impractical, but researchers have been studying the phenomenon in an effort to uncover the cellular mechanisms behind depression and remission. Now a team at Tufts University has pinpointed glia as the key players.</p>
+<p>The researchers previously found that astrocytes, a star-shaped type of glial cell, regulate the brain chemicals involved in sleepiness. During our waking hours, astrocytes continuously release the neurotransmitter adenosine, which builds up in the brain and causes “sleep pressure,” the feeling of sleepiness and its related memory and attention impairments. The neurotransmitter causes this pressure by binding to adenosine receptors on the outside of neurons like a key fitting into a lock. As more adenosine builds up, more receptors are triggered, and the urge to sleep gets stronger.</p>
+<p>In the new study, published online January 15 in the journal <i>Translational Psychiatry</i>, the scientists investigated whether this process is responsible for the antidepressant effects of sleep deprivation. Mice with depressivelike symptoms were administered three doses of a compound that triggers adenosine receptors, thus mimicking sleep deprivation. Although the mice continued to sleep normally, after 12 hours they showed a rapid improvement in mood and behavior, which lasted for 48 hours.</p>
+<p>The results confirm that the adenosine buildup is responsible for the antidepressant effects of a lack of sleep. This finding points to a promising target for new drug development because it suggests that mimicking sleep deprivation chemically may offer the antidepressant benefits without the unwanted side effects of actually skipping sleep. Such an intervention could offer immediate relief from depression, in stark contrast with traditional antidepressants, which take six to eight weeks to kick in.</p>
+<p>The study may also have implications beyond depression and sleep regulation, according to Dustin Hines, lead author and a postdoctoral fellow at Tufts. “For many years neuroscientists focused almost exclusively on neurons, whereas the role of glia was neglected,” Hines says. “We now know that glia play an important role in the control of brain function and have the potential to aid in the development of new treatments for many illnesses, including depression and sleep disorders.”</p>
+<br /><p>This article was originally published with the title A Fast-Acting Antidepressant.</p> <br /><br /><div>
+<a href="http://www.sciamdigital.com/cart_http.cfm?ARTICLEID_CHAR=F8F21BC2-1B78-E06C-AEC6AB20787F7157&amp;sc=mind_full_buy_201305" title="Buy This Issue">
+Buy This Issue
+</a>
+<br />
+If your institution has site license access, enter <a href="http://www.nature.com/scientificamerican/index.html">here</a>.
+</div>
+</div>		</div>
+
+        <div id="footer">
+            <span class="orig_line"><a class="original" href="http://www.scientificamerican.com/article.cfm?id=why-sleep-deprivation-eases-depression">Scientific American <img style="width: 13px; height: 13px;" src="/images/orig-link.png"/></a> 			<div id="fin">
+				&#9670;
+			</div>
+		</div>
+    </body>
+</html>
+

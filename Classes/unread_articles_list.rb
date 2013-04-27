@@ -86,7 +86,7 @@ module Instapaper
 
         links.each do |l|
           node  = NSXMLDocument.alloc.initWithXMLString( l.XMLString, options: NSXMLDocumentTidyXML, error: error )
-          first_subnode = node.nodesForXPath( "//a[@class='actionLink']/@href", error: error ).first
+          first_subnode = node.nodesForXPath( "//a[@class='actionLink' and @title='Edit']/@href", error: error ).first
           
           next if first_subnode.nil?
           

@@ -8,13 +8,14 @@
 
 require "constants"
 require "data_fetcher"
+require "cgi"
 
 
 module Instapaper
 
   class Article < DataFetcher
 
-    attr_accessor :ip_id, :title, :site, :status, :html
+      attr_accessor :ip_id, :title, :site, :status, :html, :url
 
 
     def initialize(id, title = "")
@@ -48,11 +49,12 @@ module Instapaper
       log("fetch")
 
       @loading = true
-      init_fetch
+      connection = init_fetch
     end
 
 
     def connection(connection, didFailWithError: error)
+      log("connection:didFailWithError: " + @ip_id.to_s)
       if super
         @status = { :error => error.localizedDescription }
         @html   = ""
@@ -63,65 +65,79 @@ module Instapaper
     
     def connectionDidFinishLoading(connection)
       super
+      log("connection:connectionDidFinishLoading: " + @ip_id.to_s)
       
-      process_raw
+      error = Pointer.new_with_type("@")
+      doc = NSXMLDocument.alloc.initWithData(@data, options: NSXMLDocumentTidyHTML, error: error)
+    
+      if NSString.alloc.initWithData(@data, encoding: NSUTF8StringEncoding).empty?
+        @html = ""
+      else
+        @html = process_raw doc, error
+      end
+        
       notify("article.fetched")
     end
 
 
-  private
+
 
     # Wandelt die rohen Daten in HTML um, räumt das HTML auf, erzeugt einige
     # weitere Attribute (+@site+ etc.).
     
-    def process_raw
-      log("process_raw")
-      error = Pointer.new_with_type("@")
-      @doc = NSXMLDocument.alloc.initWithData(@data, options: NSXMLDocumentTidyHTML, error: error)
+    def process_raw(doc, error)
+      result = NSXMLDocument.alloc.initWithXMLString("<html><body></body></html>", options: NSXMLDocumentTidyHTML, error: error)
 
-      if NSString.alloc.initWithData(@data, encoding: NSUTF8StringEncoding).empty?
-        @html = ""
-        return
-       end
-
-      # Titel etc. extrahieren
-      @site = get_xpath_value_from_doc("//div[@class='sm']")
+      body = result.nodesForXPath("//body", error: error).first
       
-      # Unnützes Zeug löschen
+      # Titel etc. extrahieren
+      @site = get_xpath_value_from_doc(doc, "//*[@id='titlebar']/span/a")
+      @title = get_xpath_value_from_doc(doc, "//h1")
+       
+      # Unnützes Zeug löschen - strip out redundant stuff
       xpath_selectors = [
         "//style",
         "//link",
         "//meta",
+        "//script",
         "//noscript",
-        "//@*[local-name()='style']",
-        "//div[contains(@class, 'top')]",
-        "//div[contains(@class, 'bar')][1]"
+		"//img"
       ].join("|")
       
-      @doc.nodesForXPath(xpath_selectors, error: error).each { |n| n.detach }
+      doc.nodesForXPath(xpath_selectors, error: error).each { |n| n.detach }
+
+        #adjust_blockquotes doc
       
-      adjust_bottom_bar
-      adjust_blockquotes
-      
-      @html = NSMutableString.alloc.initWithData(@doc.XMLData, encoding: NSUTF8StringEncoding)
+      if doc.nodesForXPath("//h1", error: error).first.nil?
+          log('process_raw:unexpected title format for ' + @title + "/" + @url)
+      else
+          title = doc.nodesForXPath("//h1", error: error).first.detach
+          body.addChild(title)
+      end
+        
+      if doc.nodesForXPath("//div[@id='story']", error: error).first.nil?
+          log('process_raw:unexpected story format for ' + @url)
+      else
+          story = doc.nodesForXPath("//div[@id='story']", error: error).first.detach
+          body.addChild(story)
+          
+          add_bottom_bar body
+      end
+
+      NSMutableString.alloc.initWithData(result.XMLData, encoding: NSUTF8StringEncoding)
     end
 
-
-    def get_xpath_value_from_doc(xpath_selector)
+  private
+    def get_xpath_value_from_doc(doc, xpath_selector)
       error = Pointer.new_with_type("@")
-      value = @doc.nodesForXPath(xpath_selector, error: error).first.objectValue rescue ""
+      value = doc.nodesForXPath(xpath_selector, error: error).first.objectValue rescue ""
+      value = CGI.unescapeHTML(value)
+      value = value.gsub('’','\'')
       normalize_string(value)
     end
 
 
-    def adjust_bottom_bar
-      error = Pointer.new_with_type("@")
-      bb = @doc.nodesForXPath("//div[contains(@class, 'bottom')] | //div[contains(@class, 'bar')]", error: error).first
-      
-      return if bb.nil?
-      
-      bb.setChildren(nil)
-
+    def add_bottom_bar(doc)
       tags = [
         ["hr"],
         ["p", "You're reading an Instapaper article which was copied to your reader by Ephemera, the Mac tool for IP enthusiasts. Delete this article on your reading device, and during the next sync it'll be archived on Instapaper.com."],
@@ -138,14 +154,14 @@ module Instapaper
           node = NSXMLNode.elementWithName(n)
         end
         
-        bb.insertChild(node, atIndex: i)
+        doc.addChild(node)
       end
     end
 
 
-    def adjust_blockquotes
+    def adjust_blockquotes doc
       error = Pointer.new_with_type("@")
-      @doc.nodesForXPath("//blockquote/p", error: error).each do |node|
+      doc.nodesForXPath("//blockquote/p", error: error).each do |node|
         node.setName("div")
       end
     end
@@ -154,8 +170,6 @@ module Instapaper
     def normalize_string(string)
       string.gsub(/<[^>]*>/, " ").squeeze(" ").strip
     end
-
   end
-
 end
 

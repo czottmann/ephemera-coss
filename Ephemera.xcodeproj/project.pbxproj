@@ -65,7 +65,6 @@
 		2395290011050A170086E993 /* world_domination.rb in Resources */ = {isa = PBXBuildFile; fileRef = 239528FF11050A170086E993 /* world_domination.rb */; };
 		239DD73010F38E61007FE8B0 /* log_controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = 239DD72F10F38E61007FE8B0 /* log_controller.rb */; };
 		239DD73310F38E89007FE8B0 /* controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = 239DD73210F38E89007FE8B0 /* controller.rb */; };
-		23A2CDD111076FCF00574599 /* gems in Resources */ = {isa = PBXBuildFile; fileRef = 23A2CDAC11076FCF00574599 /* gems */; };
 		23A2CEE31108AC2C00574599 /* premade_bundles_processor.rb in Resources */ = {isa = PBXBuildFile; fileRef = 23A2CEE21108AC2C00574599 /* premade_bundles_processor.rb */; };
 		23A2CF0E1108B4BC00574599 /* premade_bundle_file.rb in Resources */ = {isa = PBXBuildFile; fileRef = 23A2CF0D1108B4BC00574599 /* premade_bundle_file.rb */; };
 		23A840EA1117235600DB2301 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23CBFB5F11171F22002267F5 /* Sparkle.framework */; };
@@ -74,12 +73,38 @@
 		23C83F19110ECFBB004800B9 /* EMKeychain.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C83F18110ECFBB004800B9 /* EMKeychain.dylib */; };
 		23C83F21110ECFFD004800B9 /* EMKeychain.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 23C83F18110ECFBB004800B9 /* EMKeychain.dylib */; };
 		23CBFB8311171FB1002267F5 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CBFB5F11171F22002267F5 /* Sparkle.framework */; };
-		23DE1AE21116E4D0008815F8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 23DE1AE11116E4D0008815F8 /* dsa_pub.pem */; };
 		4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 4DE339F60D74FCDD00ADB6EE /* rb_main.rb */; };
 		4DE3BE140D8651D900ECA448 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE3BE130D8651D900ECA448 /* MacRuby.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		AFBB7179172BF58F0019ADC7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBB7178172BF58F0019ADC7 /* Cocoa.framework */; };
+		AFBB717F172BF58F0019ADC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AFBB717D172BF58F0019ADC7 /* InfoPlist.strings */; };
+		AFBB7188172BF8630019ADC7 /* spec_helper.rb in Resources */ = {isa = PBXBuildFile; fileRef = AFBB7187172BF8630019ADC7 /* spec_helper.rb */; };
+		AFBB718A172BF89A0019ADC7 /* article_spec.rb in Resources */ = {isa = PBXBuildFile; fileRef = AFBB7189172BF89A0019ADC7 /* article_spec.rb */; };
+		AFBB718E172BFB440019ADC7 /* article.rb in Sources */ = {isa = PBXBuildFile; fileRef = 233236BC10FB9904005E6973 /* article.rb */; };
+		AFBB71A7172BFDF50019ADC7 /* config.rb in Resources */ = {isa = PBXBuildFile; fileRef = 231549AE1110CCA400473CA3 /* config.rb */; };
+		AFBB71B3172C086A0019ADC7 /* data_fetcher.rb in Resources */ = {isa = PBXBuildFile; fileRef = 233236CF10FBC91E005E6973 /* data_fetcher.rb */; };
+		AFBB71B4172C08720019ADC7 /* data_fetcher.rb in Sources */ = {isa = PBXBuildFile; fileRef = 233236CF10FBC91E005E6973 /* data_fetcher.rb */; };
+		AFBB71B5172C089B0019ADC7 /* bootstrap.rb in Sources */ = {isa = PBXBuildFile; fileRef = 234D33BE110B2601002688E4 /* bootstrap.rb */; };
+		AFBB71B6172C089B0019ADC7 /* constants.rb in Sources */ = {isa = PBXBuildFile; fileRef = 239314C810FF590400DD5645 /* constants.rb */; };
+		AFBB71B7172C089B0019ADC7 /* article_archiver.rb in Sources */ = {isa = PBXBuildFile; fileRef = 23931C1E11010BFF00DD5645 /* article_archiver.rb */; };
+		AFBB71B8172C089B0019ADC7 /* config.rb in Sources */ = {isa = PBXBuildFile; fileRef = 231549AE1110CCA400473CA3 /* config.rb */; };
+		AFBB71B9172C089B0019ADC7 /* login.rb in Sources */ = {isa = PBXBuildFile; fileRef = 2332348110FB2D52005E6973 /* login.rb */; };
+		AFBB71BA172C089B0019ADC7 /* notifiable.rb in Sources */ = {isa = PBXBuildFile; fileRef = 2393182B1100879E00DD5645 /* notifiable.rb */; };
+		AFBB71BB172C089B0019ADC7 /* premade_bundle_file.rb in Sources */ = {isa = PBXBuildFile; fileRef = 23A2CF0D1108B4BC00574599 /* premade_bundle_file.rb */; };
+		AFBB71BC172C089B0019ADC7 /* premade_bundles_processor.rb in Sources */ = {isa = PBXBuildFile; fileRef = 23A2CEE21108AC2C00574599 /* premade_bundles_processor.rb */; };
+		AFBB71BD172C089B0019ADC7 /* reader.rb in Sources */ = {isa = PBXBuildFile; fileRef = 239318291100874500DD5645 /* reader.rb */; };
+		AFBB71BE172C089B0019ADC7 /* single_article_files.rb in Sources */ = {isa = PBXBuildFile; fileRef = 232B0A2B110C68C400BFE239 /* single_article_files.rb */; };
+		AFBB71BF172C089B0019ADC7 /* single_articles_processor.rb in Sources */ = {isa = PBXBuildFile; fileRef = 236DF18A110752DA00044020 /* single_articles_processor.rb */; };
+		AFBB71C0172C089B0019ADC7 /* unread_articles_list.rb in Sources */ = {isa = PBXBuildFile; fileRef = 236DF1691107521F00044020 /* unread_articles_list.rb */; };
+		AFBB71C1172C089B0019ADC7 /* world_domination.rb in Sources */ = {isa = PBXBuildFile; fileRef = 239528FF11050A170086E993 /* world_domination.rb */; };
+		AFBB71C2172C089B0019ADC7 /* controller.rb in Sources */ = {isa = PBXBuildFile; fileRef = 239DD73210F38E89007FE8B0 /* controller.rb */; };
+		AFBB71C3172C089B0019ADC7 /* about_controller.rb in Sources */ = {isa = PBXBuildFile; fileRef = 23931D501101F52F00DD5645 /* about_controller.rb */; };
+		AFBB71C4172C089B0019ADC7 /* log_controller.rb in Sources */ = {isa = PBXBuildFile; fileRef = 239DD72F10F38E61007FE8B0 /* log_controller.rb */; };
+		AFBB71C5172C089B0019ADC7 /* prefs_controller.rb in Sources */ = {isa = PBXBuildFile; fileRef = 23691FF710F3EA3B00A49DAC /* prefs_controller.rb */; };
+		AFBB71C6172C089B0019ADC7 /* window_controller.rb in Sources */ = {isa = PBXBuildFile; fileRef = 23BBDBAB10F4BE8100AC77B4 /* window_controller.rb */; };
+		AFBB71C9172C153A0019ADC7 /* wait_helper.rb in Resources */ = {isa = PBXBuildFile; fileRef = AFBB71C8172C153A0019ADC7 /* wait_helper.rb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,20 +158,26 @@
 		239528FF11050A170086E993 /* world_domination.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = world_domination.rb; path = ../Ephemera/Classes/world_domination.rb; sourceTree = "<group>"; };
 		239DD72F10F38E61007FE8B0 /* log_controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = log_controller.rb; path = ../Ephemera/Classes/log_controller.rb; sourceTree = SOURCE_ROOT; };
 		239DD73210F38E89007FE8B0 /* controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = controller.rb; path = ../Ephemera/Classes/controller.rb; sourceTree = SOURCE_ROOT; };
-		23A2CDAC11076FCF00574599 /* gems */ = {isa = PBXFileReference; lastKnownFileType = folder; name = gems; path = ../Ephemera/gems; sourceTree = SOURCE_ROOT; };
 		23A2CEE21108AC2C00574599 /* premade_bundles_processor.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = premade_bundles_processor.rb; path = ../Ephemera/Classes/premade_bundles_processor.rb; sourceTree = "<group>"; };
 		23A2CF0D1108B4BC00574599 /* premade_bundle_file.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = premade_bundle_file.rb; path = ../Ephemera/Classes/premade_bundle_file.rb; sourceTree = "<group>"; };
 		23B98ED8110E4BCE00600227 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		23BBDBAB10F4BE8100AC77B4 /* window_controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = window_controller.rb; path = ../Ephemera/Classes/window_controller.rb; sourceTree = SOURCE_ROOT; };
 		23C83F18110ECFBB004800B9 /* EMKeychain.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = EMKeychain.dylib; sourceTree = "<group>"; };
 		23CBFB5F11171F22002267F5 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		23DE1AE11116E4D0008815F8 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		4DE339F60D74FCDD00ADB6EE /* rb_main.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		4DE3BE130D8651D900ECA448 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = /Library/Frameworks/MacRuby.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFBB7177172BF58F0019ADC7 /* Specs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Specs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFBB7178172BF58F0019ADC7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AFBB717C172BF58F0019ADC7 /* Specs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Specs-Info.plist"; sourceTree = "<group>"; };
+		AFBB717E172BF58F0019ADC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AFBB7180172BF58F0019ADC7 /* Specs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Specs-Prefix.pch"; sourceTree = "<group>"; };
+		AFBB7187172BF8630019ADC7 /* spec_helper.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = spec_helper.rb; sourceTree = "<group>"; };
+		AFBB7189172BF89A0019ADC7 /* article_spec.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = article_spec.rb; sourceTree = "<group>"; };
+		AFBB71C8172C153A0019ADC7 /* wait_helper.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = wait_helper.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +189,14 @@
 				4DE3BE140D8651D900ECA448 /* MacRuby.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				23C83F19110ECFBB004800B9 /* EMKeychain.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFBB7173172BF58F0019ADC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBB7179172BF58F0019ADC7 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				2369205410F3F44600A49DAC /* Ephemera.app */,
+				AFBB7177172BF58F0019ADC7 /* Specs.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,13 +285,13 @@
 		29B97314FDCFA39411CA2CEA /* Ephemera */ = {
 			isa = PBXGroup;
 			children = (
-				23A2CDAC11076FCF00574599 /* gems */,
 				239318A51100923100DD5645 /* Util */,
 				2332347110FB2CCD005E6973 /* Models */,
 				239DD73110F38E6D007FE8B0 /* Controllers */,
 				172754AE1075979200D0347B /* Tests */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				AFBB717A172BF58F0019ADC7 /* Specs */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -271,7 +311,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				23DE1AE11116E4D0008815F8 /* dsa_pub.pem */,
 				23271D761105FAFD00B8A53F /* autorun.bak.sh */,
 				23931D921101F7F900DD5645 /* about.rtf */,
 				239317FE10FFF37000DD5645 /* de.municode.Ephemera.plist */,
@@ -287,12 +326,52 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				AFBB7178172BF58F0019ADC7 /* Cocoa.framework */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AFBB717A172BF58F0019ADC7 /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				AFBB71C7172C153A0019ADC7 /* support */,
+				AFBB717B172BF58F0019ADC7 /* Supporting Files */,
+				AFBB7187172BF8630019ADC7 /* spec_helper.rb */,
+				AFBB7189172BF89A0019ADC7 /* article_spec.rb */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
+		AFBB717B172BF58F0019ADC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFBB717C172BF58F0019ADC7 /* Specs-Info.plist */,
+				AFBB717D172BF58F0019ADC7 /* InfoPlist.strings */,
+				AFBB7180172BF58F0019ADC7 /* Specs-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AFBB71C7172C153A0019ADC7 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				AFBB71C8172C153A0019ADC7 /* wait_helper.rb */,
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AFBB7174172BF58F0019ADC7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		8D1107260486CEB800E47090 /* Ephemera */ = {
@@ -315,6 +394,24 @@
 			productReference = 2369205410F3F44600A49DAC /* Ephemera.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AFBB7176172BF58F0019ADC7 /* Specs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFBB7186172BF58F0019ADC7 /* Build configuration list for PBXNativeTarget "Specs" */;
+			buildPhases = (
+				AFBB7172172BF58F0019ADC7 /* Sources */,
+				AFBB7173172BF58F0019ADC7 /* Frameworks */,
+				AFBB7174172BF58F0019ADC7 /* Headers */,
+				AFBB7175172BF58F0019ADC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Specs;
+			productName = Specs;
+			productReference = AFBB7177172BF58F0019ADC7 /* Specs.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -325,7 +422,11 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Ephemera" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Ephemera */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -334,6 +435,7 @@
 				172754BD107597F200D0347B /* Unit Tests */,
 				233227D91109B43300419259 /* Embed & Compile */,
 				23DE1AE71116E9F7008815F8 /* Distribution */,
+				AFBB7176172BF58F0019ADC7 /* Specs */,
 			);
 		};
 /* End PBXProject section */
@@ -365,14 +467,25 @@
 				23271D771105FAFD00B8A53F /* autorun.bak.sh in Resources */,
 				236DF16A1107521F00044020 /* unread_articles_list.rb in Resources */,
 				236DF18B110752DA00044020 /* single_articles_processor.rb in Resources */,
-				23A2CDD111076FCF00574599 /* gems in Resources */,
 				23A2CEE31108AC2C00574599 /* premade_bundles_processor.rb in Resources */,
 				23A2CF0E1108B4BC00574599 /* premade_bundle_file.rb in Resources */,
 				234D33BF110B2601002688E4 /* bootstrap.rb in Resources */,
 				232B0A2C110C68C400BFE239 /* single_article_files.rb in Resources */,
 				23B98ED9110E4BCE00600227 /* MainMenu.xib in Resources */,
 				231549AF1110CCA400473CA3 /* config.rb in Resources */,
-				23DE1AE21116E4D0008815F8 /* dsa_pub.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFBB7175172BF58F0019ADC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBB717F172BF58F0019ADC7 /* InfoPlist.strings in Resources */,
+				AFBB7188172BF8630019ADC7 /* spec_helper.rb in Resources */,
+				AFBB718A172BF89A0019ADC7 /* article_spec.rb in Resources */,
+				AFBB71A7172BFDF50019ADC7 /* config.rb in Resources */,
+				AFBB71B3172C086A0019ADC7 /* data_fetcher.rb in Resources */,
+				AFBB71C9172C153A0019ADC7 /* wait_helper.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +558,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AFBB7172172BF58F0019ADC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBB71B5172C089B0019ADC7 /* bootstrap.rb in Sources */,
+				AFBB71B6172C089B0019ADC7 /* constants.rb in Sources */,
+				AFBB71B7172C089B0019ADC7 /* article_archiver.rb in Sources */,
+				AFBB71B8172C089B0019ADC7 /* config.rb in Sources */,
+				AFBB71B9172C089B0019ADC7 /* login.rb in Sources */,
+				AFBB71BA172C089B0019ADC7 /* notifiable.rb in Sources */,
+				AFBB71BB172C089B0019ADC7 /* premade_bundle_file.rb in Sources */,
+				AFBB71BC172C089B0019ADC7 /* premade_bundles_processor.rb in Sources */,
+				AFBB71BD172C089B0019ADC7 /* reader.rb in Sources */,
+				AFBB71BE172C089B0019ADC7 /* single_article_files.rb in Sources */,
+				AFBB71BF172C089B0019ADC7 /* single_articles_processor.rb in Sources */,
+				AFBB71C0172C089B0019ADC7 /* unread_articles_list.rb in Sources */,
+				AFBB71C1172C089B0019ADC7 /* world_domination.rb in Sources */,
+				AFBB71C2172C089B0019ADC7 /* controller.rb in Sources */,
+				AFBB71C3172C089B0019ADC7 /* about_controller.rb in Sources */,
+				AFBB71C4172C089B0019ADC7 /* log_controller.rb in Sources */,
+				AFBB71C5172C089B0019ADC7 /* prefs_controller.rb in Sources */,
+				AFBB71C6172C089B0019ADC7 /* window_controller.rb in Sources */,
+				AFBB71B4172C08720019ADC7 /* data_fetcher.rb in Sources */,
+				AFBB718E172BFB440019ADC7 /* article.rb in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -470,6 +610,14 @@
 				23B98ED8110E4BCE00600227 /* English */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		AFBB717D172BF58F0019ADC7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFBB717E172BF58F0019ADC7 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -538,6 +686,76 @@
 			};
 			name = Release;
 		};
+		AFBB7184172BF58F0019ADC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Specs/Specs-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Specs/Specs-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		AFBB7185172BF58F0019ADC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Specs/Specs-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Specs/Specs-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -595,13 +813,13 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = x86_64;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = "";
 				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
@@ -609,16 +827,13 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					i386,
-					x86_64,
-				);
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = "";
 				VALID_ARCHS = "x86_64 i386";
 			};
 			name = Release;
@@ -649,6 +864,15 @@
 			buildConfigurations = (
 				23DE1AE81116E9F7008815F8 /* Debug */,
 				23DE1AE91116E9F7008815F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFBB7186172BF58F0019ADC7 /* Build configuration list for PBXNativeTarget "Specs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFBB7184172BF58F0019ADC7 /* Debug */,
+				AFBB7185172BF58F0019ADC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
